@@ -1,0 +1,787 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at top left, #ffd6e7, transparent 35%),
+        radial-gradient(circle at bottom right, #d9c2ff, transparent 35%),
+        linear-gradient(135deg, #f9d7e8, #e6d5ff);
+
+    overflow: hidden;
+
+    color: #54204c;
+}
+
+
+/* -------------------------
+   PROGRESS BAR
+------------------------- */
+
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: rgba(255,255,255,0.3);
+
+    z-index: 2000;
+}
+
+#progressBar {
+    width: 9%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #ff6fae,
+        #a66cff
+    );
+
+    transition: width 0.5s ease;
+}
+
+
+/* -------------------------
+   MUSIC BUTTON
+------------------------- */
+
+.music-button {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    z-index: 2000;
+
+    padding: 10px 17px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.85);
+
+    color: #8a3f78;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.12);
+
+    transition: 0.3s;
+}
+
+.music-button:hover {
+    transform: scale(1.08);
+}
+
+
+/* -------------------------
+   PAGES
+------------------------- */
+
+.page {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    text-align: center;
+}
+
+.page.active {
+    display: flex;
+
+    animation: pageIn 0.6s ease;
+}
+
+@keyframes pageIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* -------------------------
+   CARD
+------------------------- */
+
+.card {
+
+    width: min(650px, 92vw);
+
+    max-height: 90vh;
+
+    overflow: hidden;
+
+    padding: 40px 35px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.65);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.7);
+
+    box-shadow:
+        0 20px 60px rgba(101,52,101,0.18);
+
+    position: relative;
+}
+
+
+/* -------------------------
+   HEADINGS
+------------------------- */
+
+h1 {
+    font-size: clamp(28px, 5vw, 44px);
+
+    margin-bottom: 18px;
+
+    color: #7a286c;
+}
+
+h2 {
+    color: #8a407c;
+
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+.big-text {
+    font-size: 21px;
+
+    font-weight: 600;
+}
+
+
+/* -------------------------
+   OPENING
+------------------------- */
+
+.opening-card {
+    padding-top: 30px;
+}
+
+.sparkles {
+    font-size: 28px;
+
+    margin-bottom: 10px;
+}
+
+.opening-photo {
+
+    width: 180px;
+    height: 180px;
+
+    margin: 20px auto;
+
+    border-radius: 50%;
+
+    padding: 7px;
+
+    background: linear-gradient(
+        135deg,
+        #ff72ad,
+        #9b6cff
+    );
+
+    box-shadow:
+        0 10px 35px rgba(126,59,120,0.3);
+}
+
+.opening-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    display: block;
+}
+
+
+/* -------------------------
+   BUTTONS
+------------------------- */
+
+.main-btn {
+
+    border: none;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #ff65a7,
+        #9b65e8
+    );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(139,69,130,0.25);
+
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+
+/* -------------------------
+   HEARTS
+------------------------- */
+
+.mini-hearts {
+
+    font-size: 24px;
+
+    margin: 20px 0;
+}
+
+
+/* -------------------------
+   QUIZ
+------------------------- */
+
+.quiz-number {
+
+    display: inline-block;
+
+    padding: 7px 16px;
+
+    margin-bottom: 18px;
+
+    border-radius: 20px;
+
+    background: #f5c6e0;
+
+    color: #7d326e;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.options {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    margin-top: 25px;
+}
+
+.options button {
+
+    padding: 15px;
+
+    border: 2px solid #efb5d5;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.65);
+
+    color: #713c68;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.options button:hover {
+
+    transform: translateY(-3px);
+
+    background: #fff0f8;
+
+    border-color: #d87bb2;
+
+    box-shadow:
+        0 8px 18px rgba(130,60,110,0.12);
+}
+
+.feedback {
+
+    min-height: 25px;
+
+    margin-top: 18px;
+
+    font-weight: bold;
+
+    color: #b03f78;
+}
+
+
+/* -------------------------
+   MEMORY
+------------------------- */
+
+.memory-title {
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #9b4c88;
+
+    margin-bottom: 20px;
+}
+
+.memory-photo {
+
+    width: min(350px, 75vw);
+
+    height: 330px;
+
+    margin: 0 auto 20px;
+
+    padding: 8px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 35px rgba(80,40,80,0.2);
+
+    transform: rotate(-2deg);
+
+    transition: 0.4s;
+}
+
+.memory-photo:hover {
+
+    transform:
+        rotate(0deg)
+        scale(1.03);
+}
+
+.memory-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 7px;
+}
+
+.third-photo {
+    transform: rotate(2deg);
+}
+
+
+/* -------------------------
+   SECRET CODE
+------------------------- */
+
+.lock {
+
+    font-size: 60px;
+
+    margin-bottom: 10px;
+}
+
+.secret-card input {
+
+    display: block;
+
+    width: min(300px, 80%);
+
+    margin: 25px auto 15px;
+
+    padding: 15px 20px;
+
+    border: 2px solid #e2acd2;
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background: rgba(255,255,255,0.8);
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: #642d59;
+}
+
+.secret-card input:focus {
+
+    border-color: #ad65a1;
+
+    box-shadow:
+        0 0 0 4px rgba(173,101,161,0.12);
+}
+
+.hint {
+
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    color: #906281;
+}
+
+
+/* -------------------------
+   FINAL PAGE
+------------------------- */
+
+.final-card {
+
+    width: min(900px, 94vw);
+
+    max-height: 94vh;
+
+    padding: 25px;
+
+    overflow: hidden;
+}
+
+.final-card h1 {
+
+    font-size: clamp(25px, 5vw, 42px);
+
+    margin-bottom: 8px;
+}
+
+.final-card h2 {
+
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.birthday-message {
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
+}
+
+.final-sparkles {
+
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+
+/* -------------------------
+   FINAL GALLERY
+------------------------- */
+
+.final-gallery {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 15px auto;
+
+    max-width: 750px;
+}
+
+.final-photo {
+
+    width: 180px;
+    height: 190px;
+
+    padding: 7px;
+
+    background: white;
+
+    box-shadow:
+        0 10px 25px rgba(80,40,80,0.2);
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.final-photo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+}
+
+.photo-one {
+    transform: rotate(-5deg);
+}
+
+.photo-two {
+    transform: translateY(-10px);
+}
+
+.photo-three {
+    transform: rotate(5deg);
+}
+
+.final-photo:hover {
+
+    transform:
+        translateY(-8px)
+        rotate(0deg)
+        scale(1.04);
+}
+
+.final-wish {
+
+    margin-top: 10px;
+
+    color: #8d3d7c;
+}
+
+.final-hearts {
+
+    font-size: 23px;
+
+    margin-top: 8px;
+}
+
+
+/* -------------------------
+   FALLING FLOWERS
+------------------------- */
+
+.falling-item {
+
+    position: fixed;
+
+    top: -40px;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    animation:
+        fall linear forwards;
+
+    font-size: 20px;
+}
+
+@keyframes fall {
+
+    0% {
+
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* -------------------------
+   HEART BURST
+------------------------- */
+
+.burst {
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    pointer-events: none;
+
+    z-index: 3000;
+
+    animation:
+        burstAnimation 2s ease-out forwards;
+}
+
+@keyframes burstAnimation {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.5);
+
+        opacity: 0;
+    }
+}
+
+
+/* -------------------------
+   MOBILE
+------------------------- */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 15px;
+    }
+
+    .card {
+
+        padding: 28px 20px;
+
+        max-height: 88vh;
+    }
+
+    .music-button {
+
+        top: 12px;
+        right: 12px;
+
+        padding: 8px 12px;
+
+        font-size: 12px;
+    }
+
+    .opening-photo {
+
+        width: 145px;
+        height: 145px;
+    }
+
+    h1 {
+
+        font-size: 28px;
+    }
+
+    p {
+
+        font-size: 15px;
+    }
+
+    .options {
+
+        grid-template-columns: 1fr;
+    }
+
+    .memory-photo {
+
+        width: 230px;
+        height: 230px;
+    }
+
+    .final-gallery {
+
+        gap: 7px;
+    }
+
+    .final-photo {
+
+        width: 30vw;
+        height: 130px;
+
+        padding: 4px;
+    }
+
+    .final-card {
+
+        padding: 18px;
+    }
+
+    .birthday-message {
+
+        font-size: 14px;
+
+        line-height: 1.4;
+    }
+
+    .final-card h1 {
+
+        font-size: 25px;
+    }
+
+    .final-card h2 {
+
+        font-size: 17px;
+    }
+}

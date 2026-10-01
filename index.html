@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Avika 💗</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- MUSIC -->
+    <audio id="birthdayMusic" loop>
+        <source src="birthday_music.mp3.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="musicButton" class="music-button" onclick="toggleMusic()">
+        🎵 Music: OFF
+    </button>
+
+
+    <!-- FALLING FLOWERS -->
+    <div id="falling-container"></div>
+
+
+    <!-- PROGRESS -->
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
+
+
+    <!-- PAGE 1 : OPENING -->
+    <section class="page active" id="page1">
+
+        <div class="card opening-card">
+
+            <div class="sparkles">✨ 💗 ✨</div>
+
+            <h1>Hey Avika! 💕</h1>
+
+            <div class="opening-photo">
+                <img src="images/avika2.jpeg" alt="Avika">
+            </div>
+
+            <h2>Something special is waiting for you...</h2>
+
+            <p>
+                But first... you have to pass a few little challenges 😏
+            </p>
+
+            <button class="main-btn" onclick="startBirthday()">
+                Open Your Surprise 🎁
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 2 : INTRO -->
+    <section class="page" id="page2">
+
+        <div class="card">
+
+            <div class="emoji-big">🎀</div>
+
+            <h1>Welcome to Avika's Birthday Mystery! 💗</h1>
+
+            <p class="big-text">
+                Today isn't going to be a normal birthday wish...
+            </p>
+
+            <p>
+                You have to answer some questions,
+                unlock a secret code,
+                and finally discover your birthday surprise! 🎁
+            </p>
+
+            <div class="mini-hearts">
+                💕 💖 💕 💖 💕
+            </div>
+
+            <button class="main-btn" onclick="nextPage()">
+                Let's Begin ✨
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 3 : QUIZ 1 -->
+    <section class="page" id="page3">
+
+        <div class="card quiz-card">
+
+            <div class="quiz-number">QUESTION 1</div>
+
+            <h1>When did we first meet? 🤔</h1>
+
+            <div class="options">
+
+                <button onclick="checkMeet(2019)">
+                    2019
+                </button>
+
+                <button onclick="checkMeet(2020)">
+                    2020 💗
+                </button>
+
+                <button onclick="checkMeet(2021)">
+                    2021
+                </button>
+
+                <button onclick="checkMeet(2022)">
+                    2022
+                </button>
+
+            </div>
+
+            <p id="quiz1Feedback" class="feedback"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 4 : QUIZ 2 -->
+    <section class="page" id="page4">
+
+        <div class="card quiz-card">
+
+            <div class="quiz-number">QUESTION 2</div>
+
+            <h1>
+                Who says "I'll do it later"...
+                and then completely forgets? 😂
+            </h1>
+
+            <div class="options">
+
+                <button onclick="checkQuiz2(true)">
+                    Avika 😂💀
+                </button>
+
+                <button onclick="checkQuiz2(false)">
+                    Me 😇
+                </button>
+
+                <button onclick="checkQuiz2(false)">
+                    Both of us 💀
+                </button>
+
+            </div>
+
+            <p id="quiz2Feedback" class="feedback"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 5 : MEMORY 1 -->
+    <section class="page" id="page5">
+
+        <div class="card memory-card">
+
+            <div class="memory-title">
+                📸 MEMORY UNLOCKED
+            </div>
+
+            <div class="memory-photo">
+                <img
+                    src="images/avika1.jpg"
+                    alt="Avika memory">
+            </div>
+
+            <h1>Some memories are priceless 💗</h1>
+
+            <p>
+                And somehow, the funniest moments
+                always become the best memories. 🥹
+            </p>
+
+            <button class="main-btn" onclick="nextPage()">
+                Next Memory ➜
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 6 : QUIZ 3 -->
+    <section class="page" id="page6">
+
+        <div class="card quiz-card">
+
+            <div class="quiz-number">QUESTION 3</div>
+
+            <h1>
+                How would you describe our friendship? 💕
+            </h1>
+
+            <div class="options">
+
+                <button onclick="quiz3('correct')">
+                    100% unforgettable 💗
+                </button>
+
+                <button onclick="quiz3('wrong')">
+                    Very normal 😐
+                </button>
+
+                <button onclick="quiz3('wrong')">
+                    Completely boring 😴
+                </button>
+
+                <button onclick="quiz3('wrong')">
+                    I don't know 😂
+                </button>
+
+            </div>
+
+            <p id="quiz3Feedback" class="feedback"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 7 : QUIZ 4 -->
+    <section class="page" id="page7">
+
+        <div class="card quiz-card">
+
+            <div class="quiz-number">QUESTION 4</div>
+
+            <h1>
+                If our friendship was a movie,
+                what would it be? 🎬
+            </h1>
+
+            <div class="options">
+
+                <button onclick="quiz4('wrong')">
+                    Horror 👻
+                </button>
+
+                <button onclick="quiz4('wrong')">
+                    Documentary 📚
+                </button>
+
+                <button onclick="quiz4('correct')">
+                    Comedy + drama + memories 💗
+                </button>
+
+                <button onclick="quiz4('wrong')">
+                    Action 🔥
+                </button>
+
+            </div>
+
+            <p id="quiz4Feedback" class="feedback"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 8 : MEMORY 2 -->
+    <section class="page" id="page8">
+
+        <div class="card memory-card">
+
+            <div class="memory-title">
+                🌸 ANOTHER MEMORY 🌸
+            </div>
+
+            <div class="memory-photo third-photo">
+                <img
+                    src="images/avika3.jpeg"
+                    alt="Avika memory">
+            </div>
+
+            <h1>And there are many more to come... 💕</h1>
+
+            <p>
+                More laughs. More chaos.
+                More memories. More birthdays. 🥹💗
+            </p>
+
+            <button class="main-btn" onclick="nextPage()">
+                One Last Challenge 👀
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 9 : QUIZ 5 -->
+    <section class="page" id="page9">
+
+        <div class="card quiz-card">
+
+            <div class="quiz-number">FINAL QUESTION</div>
+
+            <h1>
+                If we got lost somewhere,
+                who would actually know where we are? 😂
+            </h1>
+
+            <div class="options">
+
+                <button onclick="quiz5('wrong')">
+                    Avika 😎
+                </button>
+
+                <button onclick="quiz5('wrong')">
+                    Me 😎
+                </button>
+
+                <button onclick="quiz5('correct')">
+                    Neither of us 💀
+                </button>
+
+                <button onclick="quiz5('wrong')">
+                    Google Maps 😂
+                </button>
+
+            </div>
+
+            <p id="quiz5Feedback" class="feedback"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 10 : SECRET CODE -->
+    <section class="page" id="page10">
+
+        <div class="card secret-card">
+
+            <div class="lock">🔐</div>
+
+            <h1>Secret Code Required</h1>
+
+            <p>
+                You made it this far...
+            </p>
+
+            <p>
+                Now enter the secret code to unlock
+                your birthday surprise. 👀
+            </p>
+
+            <input
+                type="number"
+                id="secretCode"
+                placeholder="Enter secret code"
+                onkeydown="handleEnter(event)"
+            >
+
+            <button class="main-btn" onclick="checkCode()">
+                Unlock 🔓
+            </button>
+
+            <p id="codeFeedback" class="feedback"></p>
+
+            <div class="hint">
+                💡 Hint: Think about the year we met...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 11 : FINAL -->
+    <section class="page" id="page11">
+
+        <div class="card final-card">
+
+            <div class="final-sparkles">
+                ✨ 🌸 ✨ 🌸 ✨
+            </div>
+
+            <h1>🎉 HAPPY BIRTHDAY AVIKA! 🎉</h1>
+
+            <h2>
+                💗 You unlocked the surprise! 💗
+            </h2>
+
+            <p class="birthday-message">
+                May your life always be filled with
+                happiness, laughter, amazing memories,
+                and people who make you smile. 🥹💕
+            </p>
+
+            <p class="birthday-message">
+                Keep smiling, keep shining,
+                and never stop being YOU! 🌸✨
+            </p>
+
+            <div class="final-gallery">
+
+                <div class="final-photo photo-one">
+                    <img
+                        src="images/avika1.jpg"
+                        alt="Avika memory">
+                </div>
+
+                <div class="final-photo photo-two">
+                    <img
+                        src="images/avika2.jpeg"
+                        alt="Avika memory">
+                </div>
+
+                <div class="final-photo photo-three">
+                    <img
+                        src="images/avika3.jpeg"
+                        alt="Avika memory">
+                </div>
+
+            </div>
+
+            <h2 class="final-wish">
+                Here's to many more memories! 🥂💗
+            </h2>
+
+            <div class="final-hearts">
+                💗 💕 💖 💗 💕
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
